@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>FBFlow - Hats</title>
+    <link rel="stylesheet" href="style1.css">
+    <script src="https://kit.fontawesome.com/98463d1c2e.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <header>
+        <p>Embrace Convenience and Delight with Nationwide Delivery in Lebanon</p>
+    </header>
+    <div class="head">
+        <i class="fa-solid fa-bars" style="color: #000000;"></i>
+        <a href="index.html">
+            <img src="last.png" alt="logo">
+        </a>
+        <i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i>
+    </div>
+   
+    <div class="cointainer">
+        <div class="item" id="box1">
+            <div class="item-image">
+                
+                <div class="image-container">
+                    <img src="thuglife.jpg" alt="Image 1" class="item-image">
+                    
+                    <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+                    <button class="next" onclick="changeImage(1)">&#10095;</button>
+                  </div>
+            </div>
+        </div>
+        <div class="hat-details">
+            <h1 class="hat-name">Thug Life bucket hat  🤘</h1>
+            <p class="description"><strong>Empowering Elegance: "Thug Life" Bucket Hat 👑</strong><br>
+                Unleash your boldness with the "Thug Life" bucket hat - designed exclusively for fearless females like you. High-quality and stylish,
+                 this hat exudes an air of unapologetic confidence that empowers you to conquer life's challenges fearlessly.
+                 Embrace your strength and make a statement with every step you take. Own your journey,
+                  inspire, and conquer fearlessly with the empowering elegance of the "Thug Life" bucket hat. 🔥👑💪</p>
+            <div class="quantity">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" value="1" min="1" max="10" onchange="updatePrice()">
+                <div id="price">Price: 5.99$</div> <!-- Move the #price below the quantity -->
+            </div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/96181930412" target="_blank">
+        <i class="fa-brands fa-whatsapp fa-4x"></i>
+    </a>
+
+    <script>
+        // JavaScript to update the price based on the chosen quantity
+        function updatePrice() {
+            const quantityInput = document.getElementById('quantity');
+            const priceElement = document.getElementById('price');
+            const pricePerHat = 5.99; // The price of one hat
+            const quantity = parseInt(quantityInput.value);
+            const totalPrice = pricePerHat * quantity;
+            priceElement.textContent = 'Price: ' + totalPrice + '$';
+        }
+
+        
+        let currentImageIndex = 0;
+        const images = ['thuglife.jpg'];
+
+        function changeImage(direction) {
+        currentImageIndex += direction;
+        if (currentImageIndex < 0) {
+            currentImageIndex = images.length - 1;
+        } else if (currentImageIndex >= images.length) {
+            currentImageIndex = 0;
+        }
+        const imageContainer = document.querySelector('.image-container img');
+        imageContainer.src = images[currentImageIndex];
+        }
+    </script>
+</body>
+
+<div class="foot">
+    <p class="FBF">FBFlow</p>
+    <p class="cash-on-delivery">Cash on Delivery:&#128666;</p>
+    <p class="tel">+96181930412</p>
+</div>
+</html>
